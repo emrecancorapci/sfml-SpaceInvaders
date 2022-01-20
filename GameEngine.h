@@ -15,7 +15,7 @@ private:
 	std::unique_ptr<ScreenManager> screenManager;
 
 	float FPS = 0;
-	Vector2f Resolution;
+	Vector2f resolution;
 
 	void handleInput();
 	void update();

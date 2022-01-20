@@ -1,0 +1,1 @@
+#include "BitmapStore.h"
