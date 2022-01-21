@@ -9,33 +9,33 @@ BitmapStore::BitmapStore()
 	sharedInstance = this;
 }
 
-void BitmapStore::addBitmap(string const& filename)
+bool BitmapStore::thereIsMatch(string const& filename)
 {
-	// Get a reference
 	auto& bitmapMap = sharedInstance->_bitmapsMap;
 
 	// Kvp iterator - find file
 	const auto keyValuePair = bitmapMap.find(filename);
 
-	const bool thereIsNoMatch = keyValuePair == bitmapMap.end();
+	const bool match = keyValuePair != bitmapMap.end();
 
-	if (thereIsNoMatch)
+	return match;
+}
+
+
+void BitmapStore::addBitmap(string const& filename)
+{
+	if (!thereIsMatch(filename))
 	{
-		auto& texture = bitmapMap[filename];
+		auto& texture = sharedInstance->_bitmapsMap[filename];
 		texture.loadFromFile(filename);
 	}
 }
 
 Texture& BitmapStore::getBitmap(std::string const& filename)
 {
-	// Get a reference
-	auto& reference = sharedInstance->_bitmapsMap;
+	const auto keyValuePair = sharedInstance->_bitmapsMap.find(filename);
 
-	const auto keyValuePair = reference.find(filename);
-
-	const bool thereIsAMatch = keyValuePair != reference.end();
-
-	if(thereIsAMatch)
+	if(thereIsMatch(filename))
 	{
 		return keyValuePair->second;
 	}

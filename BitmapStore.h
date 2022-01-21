@@ -19,6 +19,7 @@ public:
 	BitmapStore();
 	static Texture& getBitmap(string const& filename);
 	static void addBitmap(string const& filename);
+	static bool thereIsMatch(string const& filename);
 };
 
 #endif

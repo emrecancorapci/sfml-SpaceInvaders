@@ -5,7 +5,6 @@
 #include "InputHandler.h"
 #include "UIPanel.h"
 #include "Button.h"
-
 #include "ScreenManagerRemoteControl.h"
 
 using namespace sf;
@@ -17,9 +16,10 @@ private:
 	vector<unique_ptr<UIPanel>> panels;
 
 protected:
+	Screen();
 	void addPanel(unique_ptr<UIPanel> panel,
-		ScreenManagerRemoteControl* smrc,
-		shared_ptr<InputHandler> inputHandler);
+	              ScreenManagerRemoteControl* smrc,
+	              shared_ptr<InputHandler> inputHandler);
 public:
 	virtual void init();
 	void virtual update(float fps);
