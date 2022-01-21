@@ -4,6 +4,8 @@
 
 #include "InputHandler.h"
 #include "UIPanel.h"
+#include "Button.h"
+
 #include "ScreenManagerRemoteControl.h"
 
 using namespace sf;

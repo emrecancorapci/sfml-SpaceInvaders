@@ -34,6 +34,7 @@ public:
 	void ScreenManagerRemoteControl::loadLevelInPlayMode(string screenToLoad) override;
 
 	vector<GameObject>& ScreenManagerRemoteControl::getGameObjects();
+
 	/*
 	GameObjectSharer& shareGameObjectSharer()
 	{
